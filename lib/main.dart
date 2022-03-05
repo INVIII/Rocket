@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Alan Basic Example',
       theme: ThemeData(
         // This is the theme of your application.
@@ -45,12 +46,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   _MyHomePageState() {
     AlanVoice.addButton(
         "e0832f0795af2dc851a49ebb54eba4092e956eca572e1d8b807a3e2338fdd0dc/stage",
-        buttonAlign: AlanVoice.BUTTON_ALIGN_RIGHT
-    );
+        buttonAlign: AlanVoice.BUTTON_ALIGN_RIGHT);
   }
 
   @override
