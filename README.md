@@ -1,71 +1,36 @@
-# First-Aid-Recommendation-Bot
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Getting Started
 
+First, run the development server:
 
-## :page_with_curl: Brief
-Through chatbots one can communicate with text or voice interface and get reply through artificial intelligence
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Typically, a chat bot will communicate with a real person. 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Chatbots are programs built to automatically engage with received messages. Chatbots can be programmed to respond the same way each time, to respond differently to messages containing certain keywords and even to use machine learning to adapt their responses to fit the situation. 
-A developing number of hospitals, nursing homes, and even private centres, presently utilize online Chatbots for human services on their sites. These bots connect with potential patients visiting the site, helping them discover specialists, booking their appointments, and getting them access to the correct treatment. 
-In any case, the utilization of artificial intelligence in an industry where individuals’ lives could be in question, still starts misgivings in individuals. It brings up issues about whether the task mentioned above ought to be assigned to human staff. This healthcare chatbot system will help hospitals to provide healthcare support online 24 x 7, it answers deep as well as general questions. It also helps to generate leads and automatically delivers the information of leads to sales. By asking the questions in series it helps patients by guiding what exactly he/she is looking for. 
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## :card_index: Features
-- Register Screen.
-- Sign-in Screen.
-- Generates database for user login system.
-- Offers you a GUI Based Chatbot for patients for diagnosing. [A pragmatic Approach for Diagnosis]
-- Reccomends an appropriate AID to you for the following symptom.
+## Learn More
 
-## :scroll: Modules Used
-Our	program	uses	a	number	of	python	modules	to	work	properly:
+To learn more about Next.js, take a look at the following resources:
 
-1. tkinter 
-1. os
-1. webbrowser
-1. numpy
-1. pandas
-1. matplotlib
-2. nltk
-3. tflearn
-4. tensorflow
-5. speech_recognition
-6. flask
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## :white_square_button: Installation 
-Install the following package by typing the following in Terminal
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-- `pip install SpeechRecognition`
-- `pip install numpy`
-- `pip install tflearn`
-- `pip install tensorflow`
-- `pip install random`
-- `pip install json`
-- `pip install pickle`
-- `pip install gtts`
-- `pip install playsound`
-- `pip install flask`
+## Deploy on Vercel
 
-To make sure it is installed correctly, open IDLE and execute :
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- `import speech_recognition as sr`
-- `import numpy`
-- `import tflearn`
-- `import tensorflow`
-- `import random`
-- `import json`
-- `import pickle`
-- `import gtts`
-- `from playsound import playsound`
-- `import flask`
-
-If no errors appeared then the installation is done correctly.
-Then, Go to your directory and run the file `QuestionDiagonosisTkinter.py`
-
-
-## :suspect: Project Members
-
-- [Ayush Anand](https://github.com/Ayushsunny)
-- [Harshvardhan Singh](https://github.com/lawful02)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
