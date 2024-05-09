@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
         <Link
           href="#contact"
           target="_blank"
-          className="text-xl font-semibold bg-orango text-white px-8 py-3.5 rounded-lg hover:bg-white hover:text-orange-500 nav-link button-2"
+          className="text-xl font-semibold bg-orango text-white px-8 py-3.5 rounded-lg hover:bg-white hover:text-orango nav-link button-2"
         >
           SUBSCRIBE
         </Link>

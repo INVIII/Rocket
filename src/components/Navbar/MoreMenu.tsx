@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 interface MoreMenuProps {
   items: { id: number; title: string; href: string }[];
@@ -15,7 +15,7 @@ const MoreMenu: React.FC<MoreMenuProps> = ({ items, isOpen, toggleMenu }) => {
         className="flex items-center focus:outline-none"
         onClick={toggleMenu}
       >
-        <RiArrowDropDownLine size={50} />
+        <MdKeyboardArrowDown size={35} />
       </button>
       {isOpen && (
         <ul className="absolute w-56 mt-8 bg-gray-800 shadow-md rounded">
