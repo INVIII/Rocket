@@ -20,26 +20,49 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-.
-└── app/
-    ├── components/
-    │   └── Button/
-    │       └── Button.tsx
-    ├── home/
-    │   ├── TweetsList/
-    │   │   └── TweetsList.tsx
-    │   ├── Sidebar/
-    │   │   └── Sidebar.tsx
-    │   ├── page.tsx
-    │   └── useTweets.ts
-    ├── (auth)/
-    │   ├── useAuth.ts
-    │   ├── User.ts
-    │   ├── sign-up/
-    │   │   └── page.tsx
-    │   └── login/
-    │       └── page.tsx
-    ├── hooks/
-    │   └── useSomething.ts
-    └── utils/
-        └── makeThings.ts
+```
+└── 📁rocket
+    └── .eslintrc.json
+    └── .gitignore
+    └── 📁.vscode
+        └── settings.json
+    └── next-env.d.ts
+    └── next.config.mjs
+    └── package-lock.json
+    └── package.json
+    └── postcss.config.js
+    └── postcss.config.mjs
+    └── 📁public
+        └── 📁fonts
+            └── 📁Switzer
+                └── Switzer-Black.woff2
+                └── Switzer-Bold.woff2
+                └── Switzer-Extrabold.woff2
+                └── Switzer-Light.woff2
+                └── Switzer-Medium.woff2
+                └── Switzer-Regular.woff2
+                └── Switzer-Semibold.woff2
+                └── Switzer-Thin.woff2
+                └── Switzer-Variable.woff2
+        └── next.svg
+        └── vercel.svg
+    └── README.md
+    └── 📁src
+        └── 📁app
+            └── favicon.ico
+            └── globals.css
+            └── layout.tsx
+            └── page.tsx
+        └── 📁components
+            └── 📁Button
+                └── Button.tsx
+            └── 📁Navbar
+                └── Navbar.tsx
+        └── 📁libs
+            └── fonts.ts
+        └── 📁styles
+            └── globals.css
+    └── tailwind.config.js
+    └── tailwind.config.ts
+    └── tsconfig.json
+```

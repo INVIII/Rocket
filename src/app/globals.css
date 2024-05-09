@@ -1,3 +1,116 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+/**
+* This is a variable font
+* You can controll variable axes as shown below:
+* font-variation-settings: 'wght' 400.0;
+*
+* available axes:
+
+* 'wght' (range from 100.0 to 900.0)
+
+*/
+
+/* @font-face {
+  font-family: 'Switzer-Variable';
+  src: url('../fonts/Switzer-Variable.woff2') format('woff2');
+       font-weight: 100 900;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Switzer-Light';
+  src: url('../fonts/Switzer-Light.woff2') format('woff2');
+       font-weight: 300;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Switzer-Regular';
+  src: url('../fonts/Switzer-Regular.woff2') format('woff2');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Switzer-Medium';
+  src: url('../fonts/Switzer-Medium.woff2') format('woff2');
+       font-weight: 500;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Switzer-Semibold';
+  src: url('../fonts/Switzer-Semibold.woff2') format('woff2');
+       font-weight: 600;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Switzer-Bold';
+  src: url('../fonts/Switzer-Bold.woff2') format('woff2');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Switzer-Extrabold';
+  src: url('../fonts/Switzer-Extrabold.woff2') format('woff2');
+       font-weight: 800;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Switzer-Black';
+  src: url('../fonts/Switzer-Black.woff2') format('woff2');
+       font-weight: 900;
+       font-display: swap;
+       font-style: normal;
+} */

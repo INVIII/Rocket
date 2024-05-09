@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
   
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,7 +10,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        switzer: ['var(--switzer)'],
+      },
+    },
   },
   plugins: [],
 }

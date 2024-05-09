@@ -1,82 +1,65 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+"use client";
+
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
-    const [nav, setNav] = useState(false);
+  const [nav, setNav] = useState(false);
 
   const links = [
-    {
-      id: 1,
-      link: "home",
-    },
-    {
-      id: 2,
-      link: "about",
-    },
-    {
-      id: 3,
-      link: "portfolio",
-    },
-    {
-      id: 4,
-      link: "experience",
-    },
-    {
-      id: 5,
-      link: "contact",
-    },
+    { id: 1, title: 'HOME', href: '/' },
+    { id: 2, title: 'PORTFOLIO', href: '/portfolio' },
+    { id: 3, title: 'SERVICES', href: '/services' },
+    { id: 4, title: 'tl dr', href: '/tl' },
+  ];
+
+  const moreLinks = [
+    { id: 1, title: 'FAQs', href: '/faqs' },
+    { id: 2, title: 'Career', href: '/career' },
   ];
 
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-black fixed nav">
-      <div>
-        {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
-        <h1 className="text-5xl font-signature ml-2">
-          <a
-            className="link-underline link-underline-black"
-            href=""
-            target="_blank"
-            rel="noreferrer"
-          >
-            Logo
-          </a>
-        </h1>
-      </div>
-
-      <ul className="hidden md:flex">
-        {links.map(({ id, link }) => (
-          <li
-            key={id}
-            className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline"
-          >
-            <Link href={link}>{link}</Link>
-          </li>
-        ))}
-      </ul>
-
-      <div
-        onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
-      >
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
-
-      {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500">
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
-            >
-              <Link onClick={() => setNav(!nav)} href={link}>
-                {link}
-              </Link>
-            </li>
+    <nav className="fixed w-full h-20 flex items-center justify-between px-8 bg-white shadow-md">
+      <div className="flex items-center">
+        <AiOutlineMenu
+          size={30}
+          className="cursor-pointer"
+          onClick={() => setNav(!nav)}
+        />
+        <div className="flex items-center ml-10">
+          {links.map(({ id, title, href }) => (
+            <Link key={id} href={href}>
+              <a className="text-xl font-medium mr-10 hover:underline">
+                {title}
+              </a>
+            </Link>
           ))}
-        </ul>
-      )}
-    </div>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <div className="flex items-center mr-10">
+          <div className="relative">
+            <button className="flex items-center focus:outline-none">
+              <span className="mr-1">More</span>
+              <AiOutlineClose size={20} />
+            </button>
+            <div className="absolute w-56 mt-2 bg-white shadow-md">
+              {moreLinks.map(({ id, title, href }) => (
+                <Link key={id} href={href}>
+                  <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    {title}
+                  </a>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
+          Subscribe
+        </button>
+      </div>
+    </nav>
   );
 };
 
