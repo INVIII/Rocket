@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'orango': '#ff631b',
+      },
       fontFamily: {
         switzer: ['var(--switzer)'],
       },

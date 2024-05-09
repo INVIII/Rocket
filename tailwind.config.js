@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'orango': '#ff631b',
+      },
       fontFamily: {
         switzer: ['var(--switzer)'],
       },

@@ -1,67 +1,68 @@
 "use client";
 
-import Link from 'next/link';
 import React, { useState } from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
-  
-  const Navbar = () => {
-    const [nav, setNav] = useState(false);
-  
-    const links = [
-      { id: 1, title: 'Portfolio', href: '/portfolio' },
-      { id: 2, title: 'Services', href: '/services' },
-      { id: 3, title: 'TL;DR', href: '/tldr' },
-    ];
-  
-    const moreLinks = [
-      { id: 1, title: 'FAQs', href: '/faqs' },
-      { id: 2, title: 'Career', href: '/career' },
-    ];
-  
-    return (
-      <nav className="fixed w-full h-20 flex items-center justify-between px-8 bg-black shadow-md">
-        <div className="flex items-center">
-          <Link href="/">
-            <a className="text-2xl font-bold text-gray-800">The House of Aster</a>
-          </Link>
-        </div>
-        <div className="flex items-center">
-          <div className="hidden md:flex items-center space-x-8">
-            {links.map(({ id, title, href }) => (
-              <Link key={id} href={href}>
-                <a className="text-xl font-medium hover:underline">
-                  {title}
-                </a>
+import Link from 'next/link';
+import '../../styles/Navbar.css';
+import MoreMenu from './MoreMenu';
+
+const Navbar: React.FC = () => {
+  const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
+
+  const links = [
+    { id: 1, title: 'PORTFOLIO', href: '#works' },
+    { id: 2, title: 'SERVICES', href: '#services' },
+    { id: 3, title: 'TL;DR', href: '#tldr' },
+    {
+      id: 4,
+      title: 'MORE',
+      href: '#more',
+      moreMenuItems: [
+        { id: 1, title: 'FAQS', href: '#FAQ' },
+        { id: 2, title: 'WORK WITH US', href: '/join' },
+      ],
+    },
+  ];
+
+  return (
+    <nav className="sticky top-0 w-full h-36 flex items-center justify-between my-4 bg-black shadow-md">
+      <div className="left flex items-center pl-20">
+        <Link href="/" className="text-2xl w-full font-bold text-white-800">
+          <img
+            src="https://assets-global.website-files.com/653157fae6dd8877ce54f989/65b5e8ee2253653d39b520a3_THA%20Type%20White%20T.png"
+            alt="The House of Aster"
+            className="logo"
+            width={280}
+            height="auto"
+          />
+        </Link>
+      </div>
+      <div className="right flex items-center pr-20">
+        <ul className="list hidden md:flex items-center space-x-16">
+          {links.map(({ id, title, href, moreMenuItems }) => (
+            <li key={id}>
+              <Link href={href} className="text-xl font-medium hover:underline">
+                {title}
               </Link>
-            ))}
-            <div className="relative">
-              <button className="flex items-center focus:outline-none">
-                <span className="mr-1">More</span>
-                <AiOutlineClose size={20} />
-              </button>
-              <div className="absolute w-56 mt-2 bg-white shadow-md">
-                {moreLinks.map(({ id, title, href }) => (
-                  <Link key={id} href={href}>
-                    <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
-                      {title}
-                    </a>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-          <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
-            Subscribe
-          </button>
-        </div>
-        <div className="md:hidden flex items-center">
-          <button className="flex items-center focus:outline-none" onClick={() => setNav(!nav)}>
-            <span className="mr-1">Menu</span>
-            <AiOutlineClose size={20} />
-          </button>
-        </div>
-      </nav>
-    );
-  };
-  
-  export default Navbar;
+              {moreMenuItems && (
+                <MoreMenu
+                  items={moreMenuItems}
+                  isOpen={isMoreMenuOpen}
+                  toggleMenu={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
+                />
+              )}
+            </li>
+          ))}
+        </ul>
+        <Link
+          href="#contact"
+          target="_blank"
+          className="text-xl font-semibold bg-orango text-white px-8 py-3.5 rounded-lg hover:bg-white hover:text-orange-500 nav-link button-2"
+        >
+          SUBSCRIBE
+        </Link>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
