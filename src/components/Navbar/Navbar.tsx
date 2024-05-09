@@ -2,16 +2,16 @@
 
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   const links = [
-    { id: 1, title: 'HOME', href: '/' },
-    { id: 2, title: 'PORTFOLIO', href: '/portfolio' },
-    { id: 3, title: 'SERVICES', href: '/services' },
-    { id: 4, title: 'tl dr', href: '/tl' },
+    { id: 1, title: 'Home', href: '/' },
+    { id: 2, title: 'Portfolio', href: '/portfolio' },
+    { id: 3, title: 'Services', href: '/services' },
+    { id: 4, title: 'TL;DR', href: '/tldr' },
   ];
 
   const moreLinks = [
@@ -22,15 +22,13 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full h-20 flex items-center justify-between px-8 bg-white shadow-md">
       <div className="flex items-center">
-        <AiOutlineMenu
-          size={30}
-          className="cursor-pointer"
-          onClick={() => setNav(!nav)}
-        />
-        <div className="flex items-center ml-10">
+        <Link href="/">
+          <a className="text-2xl font-bold text-gray-800">The House of Aster</a>
+        </Link>
+        <div className="hidden md:flex items-center space-x-8">
           {links.map(({ id, title, href }) => (
             <Link key={id} href={href}>
-              <a className="text-xl font-medium mr-10 hover:underline">
+              <a className="text-xl font-medium hover:underline">
                 {title}
               </a>
             </Link>
@@ -38,7 +36,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="flex items-center mr-10">
+        <div className="hidden md:flex items-center space-x-8">
           <div className="relative">
             <button className="flex items-center focus:outline-none">
               <span className="mr-1">More</span>
@@ -57,6 +55,12 @@ const Navbar = () => {
         </div>
         <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
           Subscribe
+        </button>
+      </div>
+      <div className="md:hidden flex items-center">
+        <button className="flex items-center focus:outline-none" onClick={() => setNav(!nav)}>
+          <span className="mr-1">Menu</span>
+          <AiOutlineClose size={20} />
         </button>
       </div>
     </nav>
