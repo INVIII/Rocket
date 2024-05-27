@@ -1,12 +1,31 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
+import Image from 'next/image';
+import logo from '../../assets/images/ROCKET.png'
 import Link from 'next/link';
 import '../../styles/Navbar.css';
 import MoreMenu from './MoreMenu';
 
+interface NavbarState {
+  isMoreMenuOpen: boolean;
+}
+
+const initialState: NavbarState = {
+  isMoreMenuOpen: false,
+};
+
+const navbarReducer = (state: NavbarState, action: { type: string }) => {
+  switch (action.type) {
+    case 'TOGGLE_MORE_MENU':
+      return { isMoreMenuOpen: !state.isMoreMenuOpen };
+    default:
+      return state;
+  }
+};
+
 const Navbar: React.FC = () => {
-  const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
+  const [state, dispatch] = useReducer(navbarReducer, initialState);
 
   const links = [
     { id: 1, title: 'PORTFOLIO', href: '#works' },
@@ -25,18 +44,21 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="sticky top-0 w-full h-36 flex items-center justify-between my-4 bg-black shadow-md">
-      <div className="left flex items-center pl-20">
+      {/* left part of the navbar */}
+      <div className="left flex items-center pl-28">
         <Link href="/" className="text-2xl w-full font-bold text-white-800">
-          <img
-            src="https://assets-global.website-files.com/653157fae6dd8877ce54f989/65b5e8ee2253653d39b520a3_THA%20Type%20White%20T.png"
-            alt="The House of Aster"
+          <Image
+            src={logo}
+            alt="Rocket"
             className="logo"
-            width={280}
-            height="auto"
+            width={180}
+            layout="responsive"
           />
         </Link>
       </div>
-      <div className="right flex items-center pr-20">
+
+      {/* right part of the navbar */}
+      <div className="right flex items-center pr-28">
         <ul className="list hidden md:flex items-center space-x-16">
           {links.map(({ id, title, href, moreMenuItems }) => (
             <li key={id}>
@@ -46,8 +68,8 @@ const Navbar: React.FC = () => {
               {moreMenuItems && (
                 <MoreMenu
                   items={moreMenuItems}
-                  isOpen={isMoreMenuOpen}
-                  toggleMenu={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
+                  isOpen={state.isMoreMenuOpen}
+                  toggleMenu={() => dispatch({ type: 'TOGGLE_MORE_MENU' })}
                 />
               )}
             </li>
@@ -55,7 +77,7 @@ const Navbar: React.FC = () => {
         </ul>
         <Link
           href="#contact"
-          target="_blank"
+          rel="noopener noreferrer"
           className="text-xl font-semibold bg-orango text-white px-8 py-3.5 rounded-lg hover:bg-white hover:text-orango nav-link button-2"
         >
           SUBSCRIBE
