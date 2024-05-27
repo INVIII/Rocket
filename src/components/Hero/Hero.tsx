@@ -5,9 +5,9 @@ interface Props {}
 
 const Hero: React.FC<Props> = () => {
   return (
-    <div className="h-screen pl-20 mt-20 flex-col justify-center bg-black">
-      <h1 className="text-9xl font-normal mb-16 tracking-tight">
-        <span>Unlimited Designs</span>
+    <div className="h-screen pl-28 mt-24 flex-col justify-center bg-black">
+      <h1 className="text-9xl font-semibold mb-16 tracking-normal">
+        <span>Unlimited Support</span>
         <span className="text-9xl text-orango">.</span>
         <span>
           <br />
